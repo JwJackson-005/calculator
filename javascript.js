@@ -1,7 +1,5 @@
 const screenExpression = document.querySelector('#screenExpression');
 const screenInput = document.querySelector('#screenInput');
-let currentExpression = '';
-let currentInput = '';
 
 const numberButtons = document.querySelectorAll('[data-number]');
 const operatorButtons = document.querySelectorAll('[data-operator]');
@@ -25,21 +23,18 @@ function initializeButtons() {
 }
 
 function clearClicked(e) {
-    currentExpression = '';
-    currentInput = '';
     screenExpression.textContent = '';
     screenInput.textContent = '';
 }
 
 function equalsClicked(e) {
-    let lastCharIndex = currentExpression.length - 1;
-    if (screenInput.textContent !== '' && isOperator(currentExpression.charAt(lastCharIndex))) {
-        let num1 = currentExpression.slice(0, -1);
-        let operator = currentExpression.charAt(lastCharIndex);
+    let lastCharIndex = screenExpression.textContent.length - 1;
+    if (screenInput.textContent !== '' && isOperator(screenExpression.textContent.charAt(lastCharIndex))) {
+        let num1 = screenExpression.textContent.slice(0, -1);
+        let operator = screenExpression.textContent.charAt(lastCharIndex);
         let num2 = screenInput.textContent;
         
-        currentExpression = calculate(num1, operator, num2).toString();
-        screenExpression.textContent = currentExpression;
+        screenExpression.textContent = calculate(num1, operator, num2).toString();
         screenInput.textContent = '';
 
     }
@@ -56,24 +51,18 @@ function calculate(num1, operator, num2) {
 }
 
 function operatorClicked(e) {
-    let lastCharIndex = currentExpression.length - 1;
-    let lastChar = currentExpression.charAt(lastCharIndex);
+    let lastChar = screenExpression.textContent.charAt(screenExpression.length - 1);
 
-    if (screenInput.textContent !== '') {
-        currentExpression = screenInput.textContent;
-        currentExpression += e.target.textContent;        
-        screenExpression.textContent = currentExpression;
-        currentInput = '';
+    if (screenInput.textContent !== '') {     
+        screenExpression.textContent = screenInput.textContent + e.target.textContent;
         screenInput.textContent = '';
     }
     else {
         if (isOperator(lastChar)) {
-            currentExpression = currentExpression.slice(0, -1) + e.target.textContent;
-            screenExpression.textContent = currentExpression;
+            screenExpression.textContent = screenExpression.textContent.slice(0, -1) + e.target.textContent;
         }
         else if (screenExpression.textContent !== '') {
-            currentExpression += e.target.textContent;
-            screenExpression.textContent = currentExpression;
+            screenExpression.textContent += e.target.textContent;
         }
     }
 }
@@ -83,7 +72,7 @@ function isOperator(char) {
 }
 
 function numberClicked(e) {
-    screenInput.innerHTML += e.target.textContent;
+    screenInput.textContent += e.target.textContent;
 }
 
 initializeButtons();
