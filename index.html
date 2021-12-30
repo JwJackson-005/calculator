@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="javascript.js" defer></script>
+    <title>My Calculator</title>
+</head>
+<body>
+    <div id="calculatorFrame">
+        <div id="screen">
+            <div id="screenExpression">12345 +</div>
+            <div id="screenInput"></div>
+        </div>
+        <div id="buttonContainer">
+            <div class="buttonRow"> <!--C, (+/-), %, /-->
+                <button class='calcButton greyButton' id='clearButton'>C</button>
+                <button class='calcButton greyButton' id='negativeButton'>+/-</button>
+                <button class='calcButton greyButton' id='percentButton'>%</button>
+                <button class='calcButton operator' data-operator>&divide;</button>
+            </div> 
+            <div class="buttonRow"><!--7, 8, 9, X-->
+                <button class='calcButton' data-number>7</button>
+                <button class='calcButton' data-number>8</button>
+                <button class='calcButton' data-number>9</button>
+                <button class='calcButton operator' data-operator>&times;</button>
+            </div>
+            <div class="buttonRow"><!--4, 5, 6, minus-->
+                <button class='calcButton' data-number>4</button>
+                <button class='calcButton' data-number>5</button>
+                <button class='calcButton' data-number>6</button>
+                <button class='calcButton operator' data-operator>&minus;</button>
+            </div>
+            <div class="buttonRow"><!--1, 2, 3, +-->
+                <button class='calcButton' data-number>1</button>
+                <button class='calcButton' data-number>2</button>
+                <button class='calcButton' data-number>3</button>
+                <button class='calcButton operator' data-operator>+</button>
+            </div>
+            <div class="buttonRow"><!--0, ., =-->
+                <button class='calcButton doubleSize' data-number>0</button>
+                <button class='calcButton'id='decimalButton'>.</button>
+                <button class='calcButton operator' id='equalsButton'>=</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
