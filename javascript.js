@@ -1,5 +1,5 @@
-const expression = document.querySelector('#screenExpression');
-const input = document.querySelector('#screenInput');
+let expression = document.querySelector('#screenExpression');
+let input = document.querySelector('#screenInput');
 
 function initializeButtons() {
     const buttons = document.querySelectorAll('.calcButton');
@@ -10,7 +10,7 @@ function initializeButtons() {
 }
 
 function numberClicked(e) {
-    expression += e.target.textContent;
+    input.innerHTML += e.target.textContent;
 
 }
 
