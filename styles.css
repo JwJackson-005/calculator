@@ -1,7 +1,14 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: gray;
+}
+
+#title {
+    font-size: 48px;
+    font-weight: bolder;
 }
 
 #calculatorFrame {
